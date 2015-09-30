@@ -1,4 +1,4 @@
-# Animation Frames
+# User Interaction 
 In this exercise we will look at user interaction with our canvas.
 
 ## Exercises
