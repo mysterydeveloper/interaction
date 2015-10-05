@@ -26,12 +26,20 @@
       var ctx = canvas.getContext("2d");
       // Make the fill style red.
       ctx.fillStyle = "rgb(255, 0, 0)";
-      
+      var i =0;
       canvas.addEventListener("click", function(event) { 
         console.log(event);
         ctx.beginPath();
-        ctx.arc(50, 50, 10, 0, 2 * Math.PI);
+	  if (i==0){
+        ctx.fillStyle = "rgb(0, 0, 255)";
+		  i++;
+	  }else{
+	   ctx.fillStyle = "rgb(255, 0, 0)";
+		  i--;
+	  }
+        ctx.arc(event.clientX, event.clientY, 10, 0, 2 * Math.PI);
         ctx.fill();
+	 
       });
 
     </script>

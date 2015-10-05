@@ -24,12 +24,18 @@
       var canvas = document.getElementById("canvas-for-ball");
       // Get a 2D context for the canvas.
       var ctx = canvas.getContext("2d");
+	var x=50;
+	var y=50;
       // Make the fill style red.
+	    
       ctx.fillStyle = "rgb(255, 0, 0)";
-      
+      ctx.beginPath();
+      ctx.arc(x, y, 10, 0, 2 * Math.PI);
+      ctx.fill();
+
       // Add an event listener to the keypress event.
       window.addEventListener("keypress", function(event) { 
-        // Just log the event to the console.
+
         console.log(event);
       });
 
