@@ -24,6 +24,8 @@
       var canvas = document.getElementById("canvas-for-ball");
       // Get a 2D context for the canvas.
       var ctx = canvas.getContext("2d");
+	var topPos = canvas.offsetTop;
+      var LEFTPos = canvas.offsetLeft;
       // Make the fill style red.
       ctx.fillStyle = "rgb(255, 0, 0)";
       var i =0;
@@ -37,7 +39,7 @@
 	   ctx.fillStyle = "rgb(255, 0, 0)";
 		  i--;
 	  }
-        ctx.arc(event.clientX, event.clientY, 10, 0, 2 * Math.PI);
+        ctx.arc(event.clientX-LEFTPos, event.clientY-topPos, 10, 0, 2 * Math.PI);
         ctx.fill();
 	 
       });

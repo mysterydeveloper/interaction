@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Canvas</title>
+
+    <style type="text/css">
+      canvas {
+        border: 1px solid grey; 
+      }
+    </style>
+
+  </head>
+
+  <body>
+
+    <canvas id="canvas-for-ball"></canvas>
+
+    <script type="text/javascript">
+
+      // Gets a handle to the element with id canvasOne.
+      var canvas = document.getElementById("canvas-for-ball");
+      // Get a 2D context for the canvas.
+      var ctx = canvas.getContext("2d");
+	var topPos = canvas.offsetTop-1;
+      var LEFTPos = canvas.offsetLeft-1;
+	var noclicks=0;	
+      var i =0;
+	var j ;
+	var k;
+	for(j=30;j<120;j+=30){
+		for(k=30;k<120;k+=30){
+			ctx.strokeRect(j,k,30,30);
+		}
+	}
+        ctx.font="20px Georgia";
+  		
+      canvas.addEventListener("click", function(event) { 
+        console.log(event);
+	  if (noclicks%2==0){
+            ctx.clearRect(0,0,1000,20);
+            ctx.fillText("PLAYER1",40,20);
+            if(event.clientY<=75){
+                if(event.clientX<=75){
+                ctx.beginPath();
+                ctx.fillStyle = "rgb(0, 0, 255)";
+                ctx.arc(45, 45, 10, 0, 2 * Math.PI);
+                ctx.fill();   
+                
+                }
+                else if(event.clientX<=105){
+                ctx.beginPath();
+                ctx.fillStyle = "rgb(0, 0, 255)";
+                ctx.arc(75, 45, 10, 0, 2 * Math.PI);
+                ctx.fill();
+                }else if(event.clientX<=135){
+                ctx.beginPath();
+                ctx.fillStyle = "rgb(0, 0, 255)";
+                ctx.arc(105, 45, 10, 0, 2 * Math.PI);
+                ctx.fill();
+                }
+            }
+            else if(event.clientY<=105){
+                if(event.clientX<=75){
+                ctx.beginPath();
+                ctx.fillStyle = "rgb(0, 0, 255)";
+                ctx.arc(45, 75, 10, 0, 2 * Math.PI);
+                ctx.fill();          
+                }
+                else if(event.clientX<=105){
+                ctx.beginPath();
+                ctx.fillStyle = "rgb(0, 0, 255)";
+                ctx.arc(75, 75, 10, 0, 2 * Math.PI);
+                ctx.fill();
+                }else if(event.clientX<=135){
+                ctx.beginPath();
+                ctx.fillStyle = "rgb(0, 0, 255)";
+                ctx.arc(105, 75, 10, 0, 2 * Math.PI);
+                ctx.fill();
+                }
+            }
+            else if(event.clientY<=135){
+                if(event.clientX<=75){
+                ctx.beginPath();
+                ctx.fillStyle = "rgb(0, 0, 255)";
+                ctx.arc(45, 105, 10, 0, 2 * Math.PI);
+                ctx.fill();          
+                }
+                else if(event.clientX<=105){
+                ctx.beginPath();
+                ctx.fillStyle = "rgb(0, 0, 255)";
+                ctx.arc(75, 105, 10, 0, 2 * Math.PI);
+                ctx.fill();
+                }else if(event.clientX<=135){
+                ctx.beginPath();
+                ctx.fillStyle = "rgb(0, 0, 255)";
+                ctx.arc(105, 105, 10, 0, 2 * Math.PI);
+                ctx.fill();
+                }
+            }
+        
+	  }else{
+            ctx.clearRect(0,0,1000,20);
+            ctx.fillText("PLAYER2",40,20);
+            if(event.clientY<=75){
+                if(event.clientX<=75){
+                    ctx.rect(45-LEFTPos,45-topPos,10,10);
+                    ctx.stroke();
+                   
+                }
+                else if(event.clientX<=105){
+                    ctx.rect(75-LEFTPos,45-topPos,10,10);
+                    ctx.stroke();
+                }else if(event.clientX<=135){
+                    ctx.rect(105-LEFTPos,45-topPos,10,10);
+                    ctx.stroke();
+                }
+            }
+            else if(event.clientY<=105){
+                if(event.clientX<=75){
+                    ctx.rect(45-LEFTPos,75-topPos,10,10);
+                    ctx.stroke();
+                   
+                }
+                else if(event.clientX<=105){
+                    ctx.rect(75-LEFTPos,75-topPos,10,10);
+                    ctx.stroke();
+                }else if(event.clientX<=135){
+                    ctx.rect(105-LEFTPos,75-topPos,10,10);
+                    ctx.stroke();
+                }
+            }
+            else if(event.clientY<=135){
+                if(event.clientX<=75){
+                    ctx.rect(45-LEFTPos,105-topPos,10,10);
+                    ctx.stroke();
+                   
+                }
+                else if(event.clientX<=105){
+                    ctx.rect(75-LEFTPos,105-topPos,10,10);
+                    ctx.stroke();
+                }else if(event.clientX<=135){
+                    ctx.rect(105-LEFTPos,105-topPos,10,10);
+                    ctx.stroke();
+                }
+            }
+   
+                  
+	  }
+           noclicks++;
+      });
+        
+
+    </script>
+
+  </body>
+
+</html>

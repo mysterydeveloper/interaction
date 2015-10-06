@@ -26,19 +26,58 @@
       var ctx = canvas.getContext("2d");
 	var x=50;
 	var y=50;
-      // Make the fill style red.
-	    
+	var ball = {
+        position: {x: 200, y: 10}
+        , radius: 3
+        , velocity: {x: 3, y: 0}
+	, acceleration: {x: 0, y: 0.1}
+      }
+	var topPos = canvas.offsetTop+1.5;
+      var LEFTPos = canvas.offsetLeft+1.5;
+      // Make the fill style red
+        
+        
+function move(){	
+	ctx.clearRect(0, 0, canvas.width, canvas.height);
       ctx.fillStyle = "rgb(255, 0, 0)";
       ctx.beginPath();
-      ctx.arc(x, y, 10, 0, 2 * Math.PI);
+      ctx.arc(ball.position.x, ball.position.y, 10, 0, 2 * Math.PI);
       ctx.fill();
-
+  	if ((ball.position.x >= canvas.width-LEFTPos ))
+          ball.position.x=canvas.width-LEFTPos;
+	if ((ball.position.y >= canvas.height-topPos))
+          ball.position.y=canvas.height-topPos;
+	if ((ball.position.x <=0+LEFTPos ))
+          ball.position.x+=1;
+	if ((ball.position.y <= topPos))
+          ball.position.y+=1;
+	 window.requestAnimationFrame(move);
+      }
       // Add an event listener to the keypress event.
-      window.addEventListener("keypress", function(event) { 
+      window.addEventListener("keydown", function(e) { 
 
+    if (e.keyCode == '38') {
+        // up arrow
+	    ball.position.y-=2;
+    }
+    if (e.keyCode == '40') {
+        // down arrow
+	   ball.position.y+=2; 
+    }
+    if (e.keyCode == '37') {
+       // left arrow
+	   ball.position.x-=2;
+    }
+    if (e.keyCode == '39') {
+       // right arrow
+	   ball.position.x+=2;
+    }
         console.log(event);
       });
 
+      
+      // Get the animation going.
+      window.requestAnimationFrame(move);
     </script>
 
   </body>
